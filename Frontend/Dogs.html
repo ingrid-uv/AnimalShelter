@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Animal Shelter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <header>
+        <p>Tel: 0176 31794576</h2>
+    </header>
+    <div class="notFooter">
+
+
+        <ul class="navBar" id="navbar">
+            <li><a class="active" href="AnimalShelter.html">HOME</a></li>
+            <li class="dropdown"><a class="dropbtn">ABOUT</a>
+                <div class="dropdown-content">
+                    <a href="NachFarbe.html">About the shelter</a>
+                    <a href="#">How to adopt a dog</a>
+                    <a href="#">How to adopt a cat</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="Grundschulkinder.html" class="dropbtn">ADOPT ME</a>
+                <div class="dropdown-content">
+                    <a href="Dogs.html">Dogs</a>
+                    <a href="#">Cats</a>
+                    <a href="#">Other animals</a>
+                </div>
+            </li>
+            <li class="dropdown"><a class="dropbtn">ALREADY ADOPTED</a>
+                <div class="dropdown-content">
+                    <a href="Memory.html">2021</a>
+                    <a href="#">Calender</a>
+                    <a href="#">Gallery</a>
+                </div>
+            </li>
+        </ul>
+
+
+
+
+        <div class="contentColumn">
+            <div class="card2">
+                <p class="text2"><img class="img2" style="Width:50%; margin-right:15px;"
+                        src="Pictures/Dog1.jpg"><b>Name:</b> Nala</br>
+                    <b>Geboren am:</b> 03.12.2020</br>
+                    <b>Geschlecht:</b> Weiblich</br>
+                    <b>Hier seit:</b> 20.04.2021</br>
+                    <b>Rasse:</b> Mischling</br>
+                    <b>Herkunft:</b> Mischling</br>
+                    <b>Charakter:</b> Verträglich mit Hunden und Hündinen</br>
+                    <b>Gesundheitszustand:</b>  Geimpft, Gechipt, Entwurmt, Kastriert</br></br>
+                    <b>Beschreibung:</b> Nala wurde vermutlich angefahren und in einem sehr schlechten Zustand von unseren Tierschutzfreunden nahe Pula aufgenommen. Inzwischen hat er sich gut erholt. Nala muss schon längere Zeit ohne menschlichen Kontakt gelebt haben. Er zeigt sich derzeit noch sehr zurückhalten und bevorzugt den Kontakt zu seinen Artgenossen. Er lebt in der Auffangstation mit einer Hündin zusammen, das klappt gut. Am menschlichen Kontakt wird gearbeitet. Derzeit ist Nala nur an hundeerfahrene Menschen zu vermitteln die Nala die Zeit geben die er braucht um den Menschen zu vertrauen. 
+                
+
+                </p>
+            </div>
+
+            <div class="card2">
+                <p class="text2"> <img class="img2" style="Width:50%; margin-right:15px;"
+                        src="Pictures/Dog5.jpg"><b>Name:</b> Nero & Lili</p>
+            </div>
+
+            <div class="card2">
+                <p class="text2"> <img class="img2" style="Width:50%; margin-right:15px;"
+                        src="Pictures/Dog2.jpg"><b>Name:</b> Frodo</p>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <footer>
+        <h2>ANIMAL SHELTER: "Sunshine"</h2>
+        <p>Autor: Ingrid Ugussi Vukman</p>
+        <p>E-Mail: ingrid_ugussi_vukman@yahoo</p>
+    </footer>
+
+    <script>
+
+        setInterval(myFunction, 1)
+
+        window.onscroll = function () { myFunction() };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

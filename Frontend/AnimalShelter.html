@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Animal Shelter</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="Style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <header>
+      <p>Tel: 0176 31794576</h2>
+    </header>
+  <div class="notFooter">
+
+
+    <ul class="navBar" id="navbar">
+      <li><a class="active" href="AnimalShelter.html">HOME</a></li>
+      <li class="dropdown"><a class="dropbtn">ABOUT</a>
+        <div class="dropdown-content">
+          <a href="NachFarbe.html">About the shelter</a>
+          <a href="#">How to adopt a dog</a>
+          <a href="#">How to adopt a cat</a>
+        </div>
+      </li>
+      <li class="dropdown"><a href="Grundschulkinder.html" class="dropbtn">ADOPT ME</a>
+        <div class="dropdown-content">
+          <a href="Dogs.html">Dogs</a>
+          <a href="#">Cats</a>
+          <a href="#">Other animals</a>
+        </div>
+      </li>
+      <li class="dropdown"><a class="dropbtn">ALREADY ADOPTED</a>
+        <div class="dropdown-content">
+          <a href="Memory.html">2021</a>
+          <a href="#">Calender</a>
+          <a href="#">Gallery</a>
+        </div>
+      </li>
+    </ul>
+
+
+    <div class="container">
+
+      <div class="dogPic">
+        <img id="big1" src="Pictures/Dog7.jpg" style="width:60%">
+      </div>
+
+      <a class="prev" onclick=" previousPicture()">❮</a>
+      <a class="next" onclick=" nextPicture()">❯</a>
+
+      <div class="caption-container">
+        <p id="caption"></p>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <img class="demo cursor" src="Pictures/Dog7.jpg" style="width:100%" onclick="currentSlide(1)" alt="Dana">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="Pictures/Dog2.jpg" style="width:100%" onclick="currentSlide(1)" alt="Dana">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="Pictures/Dog3.jpg" style="width:100%" onclick="currentSlide(1)" alt="Dana">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="Pictures/Dog1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Dana">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="Pictures/Dog5.jpg" style="width:100%" onclick="currentSlide(1)" alt="Dana">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="Pictures/Dog9.jpg" style="width:100%" onclick="currentSlide(1)" alt="Dana">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="contentColumn">
+
+      <div class="center">
+        <h1 class="text1">What we do and how you can help</h1>
+        <div class="card">
+          <button class="butt1" onclick="location.href='Donate.html'" type="button"><b>DONATE</b></button>
+          <img style="Width:100%" ; src="Pictures/DogsBlog.jpg">
+        </div>
+        <div class="card">
+          <button class="butt1"  onclick="location.href='Adopt.html'" type="button"><b>ADOPT</b></button>
+          <img style="Width:100%" src="Pictures/Jana3.jpg">
+        </div>
+        <div class="card">
+          <button class="butt1"><b>VOLUNTEER</b></button>
+          <img style="Width:100%" src="Pictures/Jana2.jpg">
+        </div>
+        <div class="card">
+          <button class="butt1"><b>BLOG</b></button>
+          <img style="Width:100%" src="Pictures/Jana.jpg">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+
+    <footer>
+      <h2>ANIMAL SHELTER: "Sunshine"</h2>
+      <p>Autor: Ingrid Ugussi Vukman</p>
+      <p>E-Mail: ingrid_ugussi_vukman@yahoo</p>
+    </footer>
+
+    <script>
+
+      var slideIndex = 1;
+
+      function previousPicture() {
+        console.log("Previous")
+        if (slideIndex <= 1) {
+          slideIndex = 9;
+        }
+
+        slideIndex--;
+        document.getElementById("big1").src = "Pictures/dog" + slideIndex + ".jpg";
+      }
+      function nextPicture() {
+        if (slideIndex >= 9) {
+          slideIndex = 0;
+        }
+        console.log("Next")
+
+        slideIndex++;
+        document.getElementById("big1").src = "Pictures/dog" + slideIndex + ".jpg";
+      }
+
+      setInterval(nextPicture, 3000)
+
+      setInterval(myFunction, 1)
+
+      window.onscroll = function () { myFunction() };
+
+      var navbar = document.getElementById("navbar");
+      var sticky = navbar.offsetTop;
+
+      function myFunction() {
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky")
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      }
+
+    </script>
+
+</body>
+
+</html>
