@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Animal Shelter</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="Style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+  <header>
+    <p>Tel: 0176 31794576</h2>
+  </header>
+  <div class="notFooter">
+
+
+    <ul class="navBar" id="navbar">
+      <li><a class="active" href="AnimalShelter.html">HOME</a></li>
+      <li class="dropdown"><a class="dropbtn">ABOUT</a>
+        <div class="dropdown-content">
+          <a href="NachFarbe.html">About the shelter</a>
+          <a href="#">How to adopt a dog</a>
+          <a href="#">How to adopt a cat</a>
+        </div>
+      </li>
+      <li class="dropdown"><a href="Grundschulkinder.html" class="dropbtn">ADOPT ME</a>
+        <div class="dropdown-content">
+          <a href="Dogs.html">Dogs</a>
+          <a href="#">Cats</a>
+          <a href="#">Other animals</a>
+        </div>
+      </li>
+      <li class="dropdown"><a class="dropbtn">ALREADY ADOPTED</a>
+        <div class="dropdown-content">
+          <a href="Memory.html">2021</a>
+          <a href="#">Calender</a>
+          <a href="#">Gallery</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="contentColumn">
+      </br>
+
+      <div class="center">
+        <h1>KONTAKTFORMULAR</h1>
+        <div class="form_out">
+          <div class="form_out" style="display: inline-block">
+            <label for="animal0">Choose animal:</label></br>
+            <select class="form" id="animal0" name="adoption">
+              <option value="dog">Dog</option>
+              <option value="cat">Cat</option>
+              <option value="rabbit">Rabbit</option>
+              <option value="guineaPig">Guinea Pig</option>
+              <option value="snake">Snake</option>
+            </select>
+          </div>
+          <div style="display: inline-block">
+            <label for="animal1">Tiercode:</label></br>
+            <input class="form" type="animalCode" id="animalID" name="animalCode">
+          </div>
+        </div>
+
+        <div>
+          <div class="form_out" style="display: inline-block">
+            <label for="fname">Vorname:</label></br>
+            <input class="form" type="text" id="fname" name="fname">
+          </div>
+          <div style="display: inline-block">
+            <label for="nname">Nachname:</label></br>
+            <input class="form" type="text" id="nname" name="lname"></br>
+          </div>
+        </div>
+        <div>
+          <div class="form_out" style="display: inline-block">
+            <label for="email">Email-Adresse:</label></br>
+            <input class="form" type="text" id="email" name="email"></br></br>
+          </div>
+          <div style="display: inline-block">
+            <label for="tel">Telefonnummer:</label></br>
+            <input class="form" type="text" id="tel" name="tel"></br></br>
+          </div>
+        </div>
+        <div>
+          <div class="form_out" style="display: inline-block">
+            <label for="adresse">Adresse:</label></br>
+            <input class="form" type="text" id="adresse" name="adresse"></br>
+          </div>
+          <div style="display: inline-block">
+            <label for="hnum">Hausnummer:</label></br>
+            <input class="form" type="text" id="hnum" name="hnum">
+          </div>
+        </div>
+
+        <div>
+          <div class="form_out" style="display: inline-block">
+            <label for="stadt">Stadt:</label></br>
+            <input class="form" type="text" id="stadt" name="stadt">
+          </div>
+          <div style="display: inline-block">
+            <label for="plz">PLZ:</label></br>
+            <input class="form" type="text" id="plz" name="plz"></br>
+          </div>
+        </div>
+        <div>
+          <div style="display: inline-block">
+            <label for="land">Land:</label></br>
+            <input class="form" type="text" id="land" name="land"></br></br>
+          </div>
+        </div>
+        <div>
+          <textarea class="form" name="message" id="nachricht" rows="10" cols="30">Nachricht</textarea>
+          <br>
+        </div>
+        <input class="butt2" type="submit" onclick="formBearbeitung()">
+      </div>
+    </div>
+  </div>
+  <footer>
+    <h2>ANIMAL SHELTER: "Sunshine"</h2>
+    <p>Autor: Ingrid Ugussi Vukman</p>
+    <p>E-Mail: ingrid_ugussi_vukman@yahoo</p>
+  </footer>
+
+  <script>
+
+    function formBearbeitung() {
+      // alert("Ok!")
+
+      animalCode = document.getElementById("animalID").value;
+      vorname = document.getElementById("fname").value;
+      nachname = document.getElementById("nname").value;
+      email = document.getElementById("email").value;
+      telefon = document.getElementById("tel").value;
+      adresse = document.getElementById("adresse").value;
+      hausnummer = document.getElementById("hnum").value;
+      stadt = document.getElementById("stadt").value;
+      plz = document.getElementById("plz").value;
+      land = document.getElementById("land").value;
+      nachricht = document.getElementById("nachricht").value;
+
+      // alert(animalCode);
+      // alert(vorname);
+      // alert(nachname);
+
+      // if (animalCode.length == 0) {
+      //   alert("Fehlender Code")
+      // }
+      // else if (vorname.length == 0) {
+      //   alert("Fehlender Code")
+      // }
+      // else if (nachname.length == 0) {
+      //   alert("Fehlender Code")
+      // }
+
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = antwortBearbeitung;
+      var stringToSend = "http://192.168.1.6/cane" + "$" +animalCode+ "$" +vorname+ "$" +nachname+ "$" +email+ "$" +telefon+ "$" +adresse+ "$" +hausnummer+ "$" +stadt+ "$" +plz+ "$" +land+ "$" +nachricht;
+      console.log(stringToSend);
+
+      xhttp.open("GET",  stringToSend, true);
+      xhttp.send();
+
+
+    }
+
+    function antwortBearbeitung(){
+      console.log("Antwort Bearbeitung: " +this.responseText);
+    }
+
+    setInterval(myFunction, 1)
+
+    window.onscroll = function () { myFunction() };
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+      if (window.pageYOffset >= sticky) {
+        navbar.classList.add("sticky")
+      } else {
+        navbar.classList.remove("sticky");
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

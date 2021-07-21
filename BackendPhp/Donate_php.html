@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Animal Shelter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <div class="center">
+
+        <h2>Bitte treffen Sie jeweils eine Auswahl:</h2>
+
+        <form action="Donate.php" method="post">
+
+            <div class="butt4">
+                <input type="radio" name="wieoft" value="Einmal">
+                <label for="be25">Einmal</label><br>
+            </div>
+            <div class="butt4">
+                <input type="radio" name="wieoft" value="Monatlich">
+                <label for="be50">Monatlich</label><br>
+            </div>
+            <div class="butt4">
+                <input type="radio" name="wieoft" value="Jarlich">
+                <label for="be100">Järlich</label>
+            </div>
+
+            <h2>Betrag auswählen:</h2>
+
+            <div class="butt3">
+                <input type="radio" name="betrag" value="25">
+                <label for="be25">25€</label><br>
+            </div>
+            <div class="butt3">
+                <input type="radio" name="betrag" value="50">
+                <label for="be50">50€</label><br>
+            </div>
+            <div class="butt3">
+                <input type="radio" name="betrag" value="100">
+                <label for="be100">100€</label>
+            </div>
+
+            <div class="betrag" >
+                <label for="lname"><b>Ein anderer Betrag:</b></label></br>
+                <input class="form2" type="text" size="10" name="betrag2"></br></br>
+            </div>
+
+            <h2>Formular ausfüllen</h2>
+
+                <div>
+                    <div class="form_out" style="display: inline-block">
+                        <label for="fname">Vorname:</label></br>
+                        <input class="form" type="text" id="fname" name="name1">
+                    </div>
+                    <div style="display: inline-block">
+                        <label for="lname">Nachname:</label></br>
+                        <input class="form" type="text" name="name2"></br>
+                    </div>
+                </div>
+                <div>
+                    <div class="form_out" style="display: inline-block">
+                        <label for="lname">Email-Adresse:</label></br>
+                        <input class="form" type="text" name="email"></br></br>
+                    </div>
+                    <div style="display: inline-block">
+                        <label for="lname">Telefonnummer:</label></br>
+                        <input class="form" type="text" name="tel"></br></br>
+                    </div>
+                </div>
+                <div>
+                    <div class="form_out" style="display: inline-block">
+                        <label for="lname">Adresse:</label></br>
+                        <input class="form" type="text" name="adresse"></br>
+                    </div>
+                    <div style="display: inline-block">
+                        <label for="lname">Hausnummer:</label></br>
+                        <input class="form" type="text" name="hausnum">
+                    </div>
+                </div>
+                <div>
+                    <div class="form_out" style="display: inline-block">
+                        <label for="lname">Stadt:</label></br>
+                        <input class="form" type="text" name="stadt">
+                    </div>
+                    <div style="display: inline-block">
+                        <label for="lname">PLZ:</label></br>
+                        <input class="form" type="text" name="plz"></br>
+                    </div>
+                </div>
+                <div>
+                    <div style="display: inline-block">
+                        <label for="lname">Land:</label></br>
+                        <input class="form" type="text" name="land"></br></br>
+                    </div>
+                </div>
+            <p><input type="submit" name="gesendet"> <input type="reset"></p>
+        </form>
+    </div>
+
+</body>
+
+</html>

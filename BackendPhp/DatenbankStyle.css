@@ -1,0 +1,17 @@
+body,
+td {
+  font-family: Verdana;
+  font-size: 10pt;
+  color: #636363;
+  background-color: #d3d3d3;
+}
+a:link {
+  color: #636363;
+}
+a:visited {
+  color: #b6176c;
+}
+a:hover {
+  color: gold;
+  background-color: #a3a3a3;
+}

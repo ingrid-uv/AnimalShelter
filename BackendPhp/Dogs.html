@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Animal Shelter</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <header>
+        <p>Tel: 0176 31794576</h2>
+    </header>
+    <div class="notFooter">
+
+
+        <ul class="navBar" id="navbar">
+            <li><a class="active" href="AnimalShelter.html">HOME</a></li>
+            <li class="dropdown"><a class="dropbtn">ABOUT</a>
+                <div class="dropdown-content">
+                    <a href="NachFarbe.html">About the shelter</a>
+                    <a href="#">How to adopt a dog</a>
+                    <a href="#">How to adopt a cat</a>
+                </div>
+            </li>
+            <li class="dropdown"><a href="Grundschulkinder.html" class="dropbtn">ADOPT ME</a>
+                <div class="dropdown-content">
+                    <a href="Dogs.html">Dogs</a>
+                    <a href="#">Cats</a>
+                    <a href="#">Other animals</a>
+                </div>
+            </li>
+            <li class="dropdown"><a class="dropbtn">ALREADY ADOPTED</a>
+                <div class="dropdown-content">
+                    <a href="Memory.html">2021</a>
+                    <a href="#">Calender</a>
+                    <a href="#">Gallery</a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="contentColumn">
+
+            <div class="card2">
+                <p class="text2"><img class="img2" id="img0" style="Width:50%; margin-right:15px;"
+                        src="Pictures/Dog1.jpg">
+                    <b>Name:</b> <span id="hundName"></span> </br>
+                    <b>Tiercode:</b> <span id="tiercode"></span> </br>
+                    <b>Geboren am:</b> <span id="geboren"></span></br>
+                    <b>Geschlecht:</b> <span id="geschlecht"></span></br>
+                    <b>Hier seit:</b> <span id="ankunft"></span></br>
+                    <b>Rasse:</b> <span id="rasse"></span></br>
+                    <b>Herkunft:</b> <span id="herkunft"></span></br>
+                    <b>Charakter:</b><span id="charakter"></span> </br>
+                    <b>Gesundheitszustand:</b> <span id="gesundheit"></span></br></br>
+                    <b>Beschreibung:</b> <span id="beschreibung"></span>
+
+                </p>
+            </div>
+
+
+        </div>
+        <div class="center2">
+            <button class="butt2" onclick="previous()" type="button"><b>Vorherige</b></button>
+            <button class="butt2" onclick="next()" type="button"><b>Nächste</b></button>
+        </div>
+    </div>
+
+    <footer>
+        <h2>ANIMAL SHELTER: "Sunshine"</h2>
+        <p>Autor: Ingrid Ugussi Vukman</p>
+        <p>E-Mail: ingrid_ugussi_vukman@yahoo</p>
+    </footer>
+
+
+    <script>
+
+        function serverKontaktieren() {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = antwortBearbeitung; //quando arriva qualcosa dal server, viene chiamata la callBack funzione antwortBearbeitung
+            var stringToSend = "http://192.168.1.7/queryDog$" + i;
+            console.log(stringToSend);
+
+            xhttp.open("GET", stringToSend, true);
+            xhttp.send();
+        }
+
+        function serverKontaktierenMenge() {
+            var xhttp = new XMLHttpRequest(); //crea un oggetto, metodo syncrono
+
+            xhttp.onreadystatechange = antwortBearbeitungMenge;
+            var stringToSend = "http://192.168.1.13/mengeHunde";
+            console.log(stringToSend);
+
+            xhttp.open("GET", stringToSend, true);
+            xhttp.send();
+        }
+
+        function antwortBearbeitung() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("Antwort Bearbeitung: " + this.responseText);
+                dog = JSON.parse(this.responseText); //trasforma responseText (una Stringa) in un oggetto
+                console.log(dog.name)
+                document.getElementById("hundName").innerHTML = dog.name;
+                document.getElementById("tiercode").innerHTML = dog.tiercode;
+                document.getElementById("geboren").innerHTML = dog.geburtstag;
+                document.getElementById("geschlecht").innerHTML = dog.geschlecht;
+                document.getElementById("ankunft").innerHTML = dog.ankunft;
+                document.getElementById("rasse").innerHTML = dog.rasse;
+                document.getElementById("herkunft").innerHTML = dog.herkunft;
+                document.getElementById("charakter").innerHTML = dog.Charakter;
+                document.getElementById("gesundheit").innerHTML = dog.Gesundheitszustand;
+                document.getElementById("beschreibung").innerHTML = dog.Beschreibung;
+            }
+        }
+
+        function antwortBearbeitungMenge() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log("Antwort Bearbeitung: " + this.responseText);
+                var arrStringa = this.responseText.split("$");
+                var stringaDiVerifica = arrStringa[0];
+                var stringaNumCani = arrStringa[1];
+                console.log("Antwort Bearbeitung1: " + stringaDiVerifica);
+                console.log("Antwort Bearbeitung2: " + stringaNumCani);
+
+                numCani = parseInt(stringaNumCani);
+
+
+
+
+            }
+        }
+
+        var numCani = 0;
+
+
+
+        setInterval(myFunction, 1)
+
+        window.onscroll = function () { myFunction() };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset >= sticky) {
+                navbar.classList.add("sticky")
+            } else {
+                navbar.classList.remove("sticky");
+            }
+        }
+
+        var i = 0;
+
+        function updatePage() {
+
+            console.log("Now showing dog " + i)
+
+            // document.getElementById("img0").src = dogs[i].Foto;
+
+
+
+
+        }
+
+        function next() {
+            console.log("next, i = " + i)
+            i++;
+            if (i >= numCani) {
+                console.log("Error. Out of range!");
+                i = numCani - 1;
+                return;
+            }
+            serverKontaktieren();
+        }
+
+        function previous() {
+            console.log("previous, i = " + i)
+
+            i--;
+            if (i < 0) {
+                console.log("Error. Out of range!");
+                i = 0;
+                return;
+            }
+            serverKontaktieren();
+        }
+
+        serverKontaktieren();
+        serverKontaktierenMenge();
+
+    </script>
+
+</body>
+
+</html>
